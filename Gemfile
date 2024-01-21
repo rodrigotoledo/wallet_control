@@ -48,6 +48,9 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails', '~> 6.1.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry'
 end
 
 group :development do
@@ -62,8 +65,18 @@ group :development do
   gem 'guard-rspec', require: false
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 6.0'
+  gem 'rails-controller-testing'
+end
+
 gem 'simplecov', require: false, group: :test
 gem "stimulus_reflex", "= 3.5.0.rc3"
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem "redis-session-store", "~> 0.11.5"
+
+gem "devise", "~> 4.9"
+
+gem "byebug", "~> 11.1", :groups => [:development, :test]
+gem "font-awesome-sass", "~> 6.5.1"

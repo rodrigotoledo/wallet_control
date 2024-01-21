@@ -22,7 +22,7 @@ Bundler.require(*Rails.groups)
 if ['development', 'test'].include? ENV['RAILS_ENV']
   Dotenv::Railtie.load
 end
-
+Faker::Config.locale = 'pt-BR'
 module WalletControl
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
