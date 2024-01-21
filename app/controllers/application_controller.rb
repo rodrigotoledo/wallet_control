@@ -1,4 +1,12 @@
+# :nocov:
 class ApplicationController < ActionController::Base
+  include CableReady::Broadcaster
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  protected
 
-    include CableReady::Broadcaster
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :address, :user_type])
+  end
+
 end
+# :nocov:
