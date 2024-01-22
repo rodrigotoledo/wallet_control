@@ -6,11 +6,7 @@ RSpec.describe User, type: :model do
   subject(:user) { build(:user) }
 
   describe 'validations' do
-    it { should validate_presence_of(:first_name).on(:update) }
-    it { should validate_presence_of(:last_name).on(:update) }
     it { should validate_presence_of(:user_type) }
-    it { should validate_presence_of(:phone).on(:update) }
-    it { should validate_presence_of(:address).on(:update) }
   end
 
   describe 'callbacks' do

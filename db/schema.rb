@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_004423) do
     t.string "last_name", null: false
     t.string "address", null: false
     t.string "phone", null: false
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"

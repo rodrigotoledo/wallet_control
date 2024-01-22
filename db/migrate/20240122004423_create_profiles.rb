@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[7.1]
       t.string :last_name, null: false
       t.string :address, null: false
       t.string :phone, null: false
-      t.string :status, null: false
+      t.string :status
 
       t.timestamps
     end

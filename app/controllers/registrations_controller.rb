@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
     super do |resource|
       if resource.errors.empty?
         resource.save!
-        redirect_to welcome_path
+        redirect_to root_path
         return
       else
         render 'welcome/index'
