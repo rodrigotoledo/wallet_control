@@ -1,4 +1,4 @@
-class ProfilesController < ProtectedController
+class ProfilesController < ApplicationController
   include Wicked::Wizard
   steps :more_info
 
@@ -15,6 +15,7 @@ class ProfilesController < ProtectedController
   end
 
   def update
+    puts params.inspect
     @user = current_user
     @profile = @user.profile || @user.build_profile
     @profile.status = step.to_s
@@ -26,6 +27,7 @@ class ProfilesController < ProtectedController
   private
 
   def profile_params
+    
     params.require(:profile).permit(:first_name, :last_name, :address, :phone)
   end
 end

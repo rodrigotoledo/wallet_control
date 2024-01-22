@@ -10,6 +10,6 @@ class Profile < ApplicationRecord
   end
 
   def active_to_more_info?
-    status&.include?('more_info') || active?
+    status.nil? || active?
   end
 end

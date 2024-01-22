@@ -11,5 +11,8 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'welcome#index', as: 'welcome'
   root 'wallet#index'
-  resources :profiles
+  get '/profile', to: 'profiles#show', as: 'profile'
+  post '/profile', to: 'profiles#create', as: 'create_profile'
+  patch '/profile', to: 'profiles#update', as: 'update_profile'
+  
 end
