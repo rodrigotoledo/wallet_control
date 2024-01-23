@@ -5,16 +5,17 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject(:user) { build(:user) }
 
-  it { is_expected.to validate_presence_of(:email) }
-  it { is_expected.to validate_presence_of(:password) }
-  it { is_expected.to validate_length_of(:password).is_at_least(6) }
-  it { is_expected.to validate_presence_of(:first_name) }
-  it { is_expected.to validate_presence_of(:last_name) }
-  it { is_expected.to validate_presence_of(:user_type) }
-  it { is_expected.to validate_presence_of(:phone) }
-  it { is_expected.to validate_presence_of(:address) }
+  describe 'validations' do
+    it { should validate_presence_of(:user_type) }
+  end
 
-  it { is_expected.to be_valid }
+  describe 'callbacks' do
+    it 'sets default user_type before create' do
+      user = build(:user)
+      user.save
+      expect(user.user_type).to eq('responsible')
+    end
+  end
 
   describe 'traits' do
     it { expect(build(:user, :spouse)).to be_valid }

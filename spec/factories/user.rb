@@ -5,11 +5,21 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { 'password' }
     password_confirmation { 'password' }
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
+
     user_type { :responsible }
-    phone { Faker::PhoneNumber.phone_number }
-    address { Faker::Address.full_address }
+
+    trait :with_profile do
+      after(:create) do |user|
+        create(:profile, user: user)
+      end
+    end
+
+    trait :with_incomplete_profile do
+      after(:create) do |user|
+        create(:profile, status: nil, user: user)
+      end
+    end
+
 
     trait :spouse do
       user_type { :spouse }
