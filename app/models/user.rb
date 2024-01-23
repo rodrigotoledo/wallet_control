@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one :profile
+  has_one :profile, dependent: :destroy
   enum user_type: { responsible: 'responsible', spouse: 'spouse', child: 'child', employee: 'employee', other: 'other' }
-  before_create :set_default_user_type
+  after_initialize :set_default_user_type
 
   validates :user_type, inclusion: { in: %w(responsible spouse child employee other) }
   validates :user_type, presence: true

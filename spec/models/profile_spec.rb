@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
-  subject(:proile) { build(:profile) }
+  subject(:proile) { build(:profile, status: 'profile') }
 
   describe 'validations' do
     it { should validate_presence_of(:first_name) }

@@ -12,18 +12,21 @@
 
   <body>
     <div class="bg-green-500 p-4 flex items-center justify-between">
-      <!-- Parte à esquerda do topo -->
       <div class="flex items-center">
         <h1 class="text-white text-xl font-semibold">WalletControl<i class="ml-4 fa-solid fa-wallet  text-white"></i></h1>
       </div>
 
 
       <div class="flex items-center space-x-4">
-        <%= link_to 'Wallet', root_path, class: 'text-white' %>
-        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-white' %>
+        <%= link_to 'Home', root_path, class: 'text-white' %>
+        <%= link_to 'Wallet', wallet_path, class: 'text-white' %>
+        <%= link_to 'Profile', profile_path(:more_info), class: 'text-white' %>
+        <%= button_to 'Signout', destroy_user_session_path, method: :delete, class: 'text-white' %>
       </div>
     </div>
-    <main class="container mx-auto mt-28 px-5 flex">
+
+    <main class="container mx-auto mt-10 px-5">
+      <%=render 'shared/flash_messages' %>
       <%= yield %>
     </main>
   </body>

@@ -7,6 +7,7 @@ class CreateProfiles < ActiveRecord::Migration[7.1]
       t.string :address, null: false
       t.string :phone, null: false
       t.string :status
+      t.string :next_step
 
       t.timestamps
     end

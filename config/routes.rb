@@ -1,18 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 
-  authenticated :user do
-    root 'wallet#index', as: :authenticated_root
-  end
-
-  unauthenticated do
-    root 'welcome#index', as: :unauthenticated_root
-  end
-
-  get '/welcome', to: 'welcome#index', as: 'welcome'
-  root 'wallet#index'
-  get '/profile', to: 'profiles#show', as: 'profile'
-  post '/profile', to: 'profiles#create', as: 'create_profile'
-  patch '/profile', to: 'profiles#update', as: 'update_profile'
-  
+  root 'home#index'
+  get '/wallet', to: 'wallet#index', as: 'wallet'
+  resources :profiles, only: [:update, :show]
 end

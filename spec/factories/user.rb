@@ -8,6 +8,19 @@ FactoryBot.define do
 
     user_type { :responsible }
 
+    trait :with_profile do
+      after(:create) do |user|
+        create(:profile, user: user)
+      end
+    end
+
+    trait :with_incomplete_profile do
+      after(:create) do |user|
+        create(:profile, status: nil, user: user)
+      end
+    end
+
+
     trait :spouse do
       user_type { :spouse }
     end
