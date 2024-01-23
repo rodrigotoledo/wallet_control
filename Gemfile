@@ -80,3 +80,4 @@ gem "devise", "~> 4.9"
 
 gem "byebug", "~> 11.1", :groups => [:development, :test]
 gem "font-awesome-sass", "~> 6.5.1"
+gem 'wicked'

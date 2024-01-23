@@ -1,0 +1,21 @@
+<h2 class="font-bold text-2xl text-green-600">Don't have Yet?! Let's go...</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'text-left'}) do |f| %>
+  <div class="my-4">
+    <%= f.label :email %>
+    <%= f.email_field :email, value: '', class: 'h-12 rounded-md border  border-gray-800 p-2 w-full' %>
+  </div>
+
+  <div class="my-4">
+    <%= f.label :password %>
+    <%= f.password_field :password, value: '', class: 'h-12 rounded-md border  border-gray-800 p-2 w-full' %>
+  </div>
+
+  <div class="my-4">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, value: '', class: 'h-12 rounded-md border  border-gray-800 p-2 w-full' %>
+  </div>
+
+  <div>
+    <%= f.submit 'Fill with more info', class: 'bg-green-700 text-white p-2 rounded' %>
+  </div>
+<% end %>

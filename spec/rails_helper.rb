@@ -69,6 +69,7 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :system
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include DeviseRequestSpecHelpers, type: :request
 
   [:controller, :view, :request].each do |type|
     config.include ::Rails::Controller::Testing::TestProcess, :type => type
