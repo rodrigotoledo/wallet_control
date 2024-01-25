@@ -83,3 +83,4 @@ gem "font-awesome-sass", "~> 6.5.1"
 gem 'wicked'
 gem "tailwindcss-rails", "~> 2.3"
 gem "foreman"
+gem "letter_opener", :groups => [:development, :test]
