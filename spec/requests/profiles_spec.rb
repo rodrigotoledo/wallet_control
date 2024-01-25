@@ -25,6 +25,12 @@ RSpec.describe 'Profiles', type: :request do
       expect(user.profile.phone).to eq(profile_attributes[:phone])
       expect(user.profile.active?).to eq(true)
     end
+
+    it 'cant update the profile and renders the more_info with alert' do
+      patch profile_path(:more_info)
+      expect(flash[:alert]).to eq(I18n.t('operations.alert'))
+      expect(response).to render_template('more_info')
+    end
   end
 
   describe 'Coverage of incomplete profile' do
