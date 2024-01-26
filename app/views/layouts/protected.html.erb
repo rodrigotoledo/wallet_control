@@ -17,9 +17,10 @@
       </div>
 
 
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-4 menu">
         <%= link_to 'Home', root_path, class: 'text-white' %>
         <%= link_to 'Wallet', wallet_path, class: 'text-white' %>
+        <%= link_to 'Update Account', edit_user_registration_path, class: 'text-white' %>
         <%= link_to 'Profile', profile_path(:more_info), class: 'text-white' %>
         <%= button_to 'Signout', destroy_user_session_path, method: :delete, class: 'text-white' %>
       </div>
